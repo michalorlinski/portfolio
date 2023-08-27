@@ -52,7 +52,7 @@ class Solution:
         print(f"new_strs = {new_strs}")
         min_str = min(len(new_strs[0]), len(new_strs[-1]))
         print(f"min = {min_str}")
-        
+
         # iterate by chars but only for 1st and last element
         comm_pre = ""
         for i in range(min_str):
