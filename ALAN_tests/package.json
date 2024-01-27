@@ -1,0 +1,22 @@
+{
+    "name": "tests",
+    "version": "1.0.0",
+    "private": true,
+    "description": "set of packages for simple playwright tests - ALAN website",
+    "main": "index.js",
+    "scripts": {
+        "tests:smoke": "playwright test tests/test-alan.spec.ts --config=playwright.config.ts --project=Chromium --reporter=list"
+    },
+    "keywords": [],
+    "author": "Michal ORLINSKI",
+    "license": "EUL - Educational Use License",
+    "devDependencies": {
+        "@playwright/test": "^1.41.1",
+        "playwright": "^1.41.0"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.1",
+        "playwright-testrail-reporter": "^1.2.0",
+        "@types/node": "^20.11.8"
+    }
+}

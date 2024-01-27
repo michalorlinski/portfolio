@@ -4,7 +4,23 @@ __pycache__/
 *$py.class
 
 # Environments
-.env
 .venv
-env/
 venv/
+
+# dependencies
+node_modules
+**/.vscode/
+
+# misc
+npm-debug.log*
+
+# vscode
+*.code-workspace
+.vscode
+
+# playwright
+.auth
+test-results
+playwright-report
+playwright/.cache/
+.cache/
