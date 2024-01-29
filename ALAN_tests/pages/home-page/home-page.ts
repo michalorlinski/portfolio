@@ -3,9 +3,6 @@ import { BasePage } from '../base-page';
 import { HomePageLocators as Selectors } from './home-page-locators';
 import { TopBar } from '../../components/top-bar/top-bar';
 
-interface Dictionary<T> {
-  [key: string]: T;
-}
 let topBar: TopBar;
 
 export class HomePage extends BasePage {

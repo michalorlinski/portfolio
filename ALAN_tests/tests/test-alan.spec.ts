@@ -1,4 +1,4 @@
-import { test, expect, Locator } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/home-page/home-page';
 import { BusinessPage } from '../pages/business-page/business-page';
 import testData from './data.json';
@@ -97,11 +97,7 @@ test.describe('Home Page Tests', () => {
       await test.step('Navigate to Test Automation Developer job offer', async () => {
       
         await homePage.hopOnBoardBtn.click();
-        // let pageHeaderText: string = await homePage.pageHeader.innerText();
-        // expect(pageHeaderText).toContain(BUSINESS_PAGE_HEADER.forYou);
         await homePage.findJobOfferBtn.click();
-        // let pageHeaderText = await homePage.pageHeader.innerText();
-        // expect(pageHeaderText).toContain(BUSINESS_PAGE_HEADER.forYou);
         homePage.waitUntil(homePage.pageHeader, JOB_OFFER_NAME);
         await homePage.getJobOffer(JOB_OFFER_NAME).click();
       });
