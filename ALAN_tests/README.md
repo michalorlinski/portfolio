@@ -124,5 +124,15 @@ Looking for Playwright for [TypeScript](https://playwright.dev/docs/intro)/[Java
 * [API reference](https://playwright.dev/docs/api/class-playwright/)
 * [Changelog](https://github.com/microsoft/playwright/releases)
 
-# Helpers
+### Run Tests
 
+Enter the following command to run Alan's tests (for visible mode add `--headed`):
+
+```
+npx playwright test tests/test-alan.spec.ts
+```
+
+or just run the following command:
+```
+npm run tests:smoke
+```
