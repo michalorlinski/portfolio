@@ -10,6 +10,7 @@ interface Dictionary<T> {
 
 const BUSINESS_PAGE_HEADER: Dictionary<string> = testData.businessPage.pageHeader;
 const TOP_BAR_MENU: Dictionary<string[]> = testData.businessPage.topBarMenu;
+const PAGE_FOOTER_CONTACT = testData.pageFooter.contact;
 const CAREER_ITEM: string = "Career";
 
 test.describe('Business Page Tests', () => {
@@ -50,11 +51,11 @@ test.describe('Business Page Tests', () => {
 
       // check each page element on the top bar menu and page footer
       for (const elem of topMenuElements.slice(0, -1)) {
-        console.log(elem);
         await topBar.clickMenuItem(elem);
         await topBar.waitUntilActive(elem);
+      const contactFooter = await businessPage.getContactFooter();
+      expect(contactFooter).toMatchObject(PAGE_FOOTER_CONTACT);
       }
-      //TODO: add footer tests
     });
 
     await test.step('Career view - top bar menu and page footer', async () => {
@@ -68,11 +69,11 @@ test.describe('Business Page Tests', () => {
 
       // check each page element on the top bar menu and page footer
       for (const elem of topMenuElements.slice(0, -1)) {
-        console.log(elem);
         await topBar.clickMenuItem(elem);
         await topBar.waitUntilActive(elem, false);
+        const contactFooter = await businessPage.getContactFooter();
+        expect(contactFooter).toMatchObject(PAGE_FOOTER_CONTACT);
       }
-      //TODO: add footer tests
     });
   });
 });

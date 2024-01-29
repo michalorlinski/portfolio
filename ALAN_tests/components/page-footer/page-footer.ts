@@ -32,8 +32,8 @@ export class PageFooter {
     return rawAddress;
   };
 
-  public async getContactInfo(): Promise<Dictionary<any>> {
-    const contactInfo: Dictionary<any> = {
+  public async getContactInfo(): Promise<Dictionary<string | null>> {
+    const contactInfo: Dictionary<string | null> = {
       title: await this.contactTitle.textContent(),
       address: this.convertAddress(await this.contactAddress.textContent()),
       phone: await this.contactPhone.textContent(),

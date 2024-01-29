@@ -8,6 +8,7 @@ interface Dictionary<T> {
   [key: string]: T;
 }
 let topBar: TopBar;
+let pageFooter: PageFooter;
 
 export class BusinessPage extends BasePage {
   readonly url: string;
@@ -17,9 +18,14 @@ export class BusinessPage extends BasePage {
   constructor(page: Page) {
     super(page);
     topBar = new TopBar(page);
+    pageFooter = new PageFooter(page);
     this.url = '/business/';
 
     this.offerButton = this.page.locator(Selectors.GET_OFFER_BUTTON);
     this.pageHeader = topBar.pageHeader;
+  }
+
+  public async getContactFooter(): Promise<Dictionary<string | null>> {
+    return await pageFooter.getContactInfo();
   }
 }
