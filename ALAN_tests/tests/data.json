@@ -1,0 +1,25 @@
+{
+    "homePage": {},
+    "businessPage": {
+        "topBarMenu": {
+            "business": ["Business", "About Us", "Offer", "Contact", "Career"],
+            "career": ["For You", "About Us", "Career", "Contact", "Business"]
+        },
+        "pageHeader": {
+            "business": "You will develop your business with us.",
+            "aboutUs" : "About Us",
+            "offer": "Offer",
+            "contact": "Contact",
+            "career": "Career",
+            "forYou": "Join us and work in"
+        }
+    },
+    "pageFooter": {
+        "contact": {
+            "title": "CONTACT",
+            "address": "ul. Obwiednia Południowa 22, 44-200 Rybnik",
+            "phone": "+48 32 733 86 00",
+            "email": "info@alan-systems.com"
+        }
+    }
+}

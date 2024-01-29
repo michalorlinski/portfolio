@@ -15,7 +15,7 @@ export class BasePage {
 
   async gotoPage(myUrl: string = '') {
     await this.page.goto(myUrl || this.url);
-    await this.page.waitForURL(`.*${this.url}`, { waitUntil: 'networkidle' });
+    await this.page.waitForURL(`**${myUrl || this.url}`, { waitUntil: 'domcontentloaded' });
   }
 
   async getLocatorsText(locators: Locator[]): Promise<(string | null)[]> {

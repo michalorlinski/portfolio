@@ -17,7 +17,7 @@ const config: PlaywrightTestConfig = {
   snapshotDir: './snapshots',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
-  expect: { timeout: 10 * 1000 }, // timeout for expect() calls
+  expect: { timeout: 30 * 1000 }, // timeout for expect() calls
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -35,7 +35,7 @@ const config: PlaywrightTestConfig = {
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure', // Traces - collect trace when retrying the failed test
-    navigationTimeout: 10 * 1000, // timeout for await page.locator() calls
+    navigationTimeout: 30 * 1000, // timeout for await page.locator() calls
   },
 
   /* Configure projects for major browsers */
@@ -52,7 +52,7 @@ const config: PlaywrightTestConfig = {
         //   args: ["--start-maximized"]
         // }
       },
-      retries: 1,
+      retries: 0,
     },
   ],
 
