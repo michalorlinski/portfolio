@@ -124,7 +124,8 @@ Looking for Playwright for [TypeScript](https://playwright.dev/docs/intro)/[Java
 * [API reference](https://playwright.dev/docs/api/class-playwright/)
 * [Changelog](https://github.com/microsoft/playwright/releases)
 
-### Run Tests
+
+# Run Tests
 
 Enter the following command to run Alan's tests (for visible mode add `--headed`):
 
@@ -135,4 +136,15 @@ npx playwright test tests/test-alan.spec.ts
 or just run the following command:
 ```
 npm run tests:smoke
+```
+
+### Information
+
+**Note:** The last tests were PASSED on: `Jan 29, 2024` on the following system configuration:
+```
+System: Linux Ubuntu 20.04.6 LTS
+Browser: Google Chrome Version 120.0.6099.224 (Official Build) (64-bit)
+Playwright: v1.41.1
+npm: v10.2.4
+Node.js: v20.9.0
 ```

@@ -52,7 +52,7 @@ const config: PlaywrightTestConfig = {
         //   args: ["--start-maximized"]
         // }
       },
-      retries: 0,
+      retries: 1,
     },
   ],
 

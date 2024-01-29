@@ -1,5 +1,11 @@
 {
-    "homePage": {},
+    "jobOffer": {
+        "offerName": "Test Automation Developer",
+        "validationMsg": {
+            "inputFile": "Use PDF or DOCX files",
+            "checkbox": "We need your consent"
+        }
+    },
     "businessPage": {
         "topBarMenu": {
             "business": ["Business", "About Us", "Offer", "Contact", "Career"],

@@ -1,16 +1,14 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Locator } from '@playwright/test';
 import { HomePage } from '../pages/home-page/home-page';
 import { BusinessPage } from '../pages/business-page/business-page';
 import testData from './data.json';
 import { TopBar } from '../components/top-bar/top-bar';
 
-interface Dictionary<T> {
-  [key: string]: T;
-}
-
-const BUSINESS_PAGE_HEADER: Dictionary<string> = testData.businessPage.pageHeader;
-const TOP_BAR_MENU: Dictionary<string[]> = testData.businessPage.topBarMenu;
+const BUSINESS_PAGE_HEADER = testData.businessPage.pageHeader;
+const TOP_BAR_MENU = testData.businessPage.topBarMenu;
 const PAGE_FOOTER_CONTACT = testData.pageFooter.contact;
+const JOB_OFFER_NAME = testData.jobOffer.offerName;
+const VALIDATION_MSG = testData.jobOffer.validationMsg;
 const CAREER_ITEM: string = "Career";
 
 test.describe('Business Page Tests', () => {
@@ -35,7 +33,7 @@ test.describe('Business Page Tests', () => {
 
     await test.step('Load business page - page header is visible', async () => {
       
-      // Check if page is correctly loaded and page header is visible
+      // Check if page is loaded correctly and page header is visible
       await expect(businessPage.pageHeader).toBeVisible();
       const pageHeaderText: string = await businessPage.pageHeader.innerText();
       expect(pageHeaderText).toContain(BUSINESS_PAGE_HEADER.business);
@@ -76,4 +74,48 @@ test.describe('Business Page Tests', () => {
       }
     });
   });
+});
+
+test.describe('Home Page Tests', () => {
+    let homePage: HomePage;
+
+    test.beforeEach(async ({ page }) => {
+      homePage = new HomePage(page);
+      await homePage.gotoPage();
+    });
+
+    test('C2: All fields are required on the apply offer page', async () => {
+      /*
+      {test documentation page}
+      Check validation of required fields in job offer contact form
+      Given: Home Page is loaded
+      When: user navigate to the Test Automation Developer offer page
+      And: try to apply - click APPLY button
+      Then: all fields should be required
+      */
+      // Navigate to given job offer
+      await test.step('Navigate to Test Automation Developer job offer', async () => {
+      
+        await homePage.hopOnBoardBtn.click();
+        // let pageHeaderText: string = await homePage.pageHeader.innerText();
+        // expect(pageHeaderText).toContain(BUSINESS_PAGE_HEADER.forYou);
+        await homePage.findJobOfferBtn.click();
+        // let pageHeaderText = await homePage.pageHeader.innerText();
+        // expect(pageHeaderText).toContain(BUSINESS_PAGE_HEADER.forYou);
+        homePage.waitUntil(homePage.pageHeader, JOB_OFFER_NAME);
+        await homePage.getJobOffer(JOB_OFFER_NAME).click();
+      });
+
+      await test.step('Validation of job offer applying form', async () => {
+      
+        // Click APPLY button without selected checkboxes
+        await homePage.applyBtn.click();
+        const errorMessages: string[] = await homePage.errorMessage.allTextContents();
+        const expectedErrorMessages: string[] = [
+          VALIDATION_MSG.inputFile,
+          ...Array(2).fill(VALIDATION_MSG.checkbox)
+          ]
+        expect(errorMessages).toMatchObject(expectedErrorMessages);
+      });
+    });
 });
